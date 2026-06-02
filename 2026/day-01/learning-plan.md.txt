@@ -1,0 +1,27 @@
+My understanding of devops is mixed , I did devops batch 7 of TWS but failed , I gave excuses and didn't completed the course , I lost track of the course and couldn't get back on track and here I'm again to completed it from scractch without excuses and full dedication and consistency , I desparetly want to switch my work profile and secure a good package for my family and anangha . I failed last time i dont want to fail this time and yeah i struggle with consistency and get carried away by distrtactions. first of all need to get rid of distractions of my life and need some isolation , turn that procrastination into something fruitful and its now or never for me , do or die. Am i failure or not next 90 days will show it , i fucked up with start of program need to catchup as fast as possilbe time is running away.
+
+1. I have good understanding of basic linux and how cloud works but no industry level knowledge which i can showcase in interview and secure good job . I studied docker and K8s but forgot .
+
+2. I feel devops is close to my current work profile which is not devops but i think i can BS around it and get job thats why i chose devops and I like linux very powerful and 90% of IT runs on it so yeah it was very much required.
+I saw video of linux by TWS and it was really good , maybe a turning point towards devops, I never believed in manifestation or motivation but i dont know now i will practice it and will get to know if it works. a change , i believe in hard work but im a fucking procrastinator which i need to get rid of desperately , if i were not would have been much much better place than now but yeah it is now or never , consistency only consistency , consistency over anything
+
+3. I really dont care about position , but I'm very much inspired by european work culture and I want that maybe in india or in europe want to give good life to my parents and partner. right now atleast 20lpa im hoping and also will try to secure job outside country mostly europe.
+
+4. I think it high time for me to be consistent , but will do 90 days of devops seriously , watch some videos on youtube on consistency and how to perform it . 90 days of devops repo will addaccountablilty factor in my journey , i want ot break the shackles and be a MF devops engg and get out of this hell hole.
+
+Im working IT professional working in teradata for 5 years and want desparatly to swtich my profile and job as well 
+
+goals : 
+1. Deploy propduction grade application for my resume.
+2. Be consistent and learn power of consistency 
+3. Secure and job offer in devops
+4. one cloud certifcation 
+
+3 core skills : 
+
+1. linux expert shekll scripting debugging 
+2. CI/CD pipelines 
+3. K8s sclaing 
+4. terraform ( infra management)
+
+
