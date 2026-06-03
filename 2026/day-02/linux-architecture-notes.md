@@ -91,7 +91,11 @@ ls -la          # List files and permissions
 ss -tulpn # Check listening ports
 ```
 
+---
+
 ## Linux Boot Process
+
+```text
 Power On
    ↓
 BIOS/UEFI
@@ -109,12 +113,18 @@ systemd (PID 1)
 Start Services
    ↓
 Login Prompt / GUI
-Boot Stages
-BIOS/UEFI – Detects hardware and finds boot device.
-GRUB – Loads kernel and initramfs.
-Kernel – Initializes CPU, memory, and drivers.
-Initramfs – Loads required drivers and finds root filesystem.
-Systemd – Starts services and completes system startup.
+```
+
+### Boot Stages
+
+1. **BIOS/UEFI** – Detects hardware and finds boot device.
+2. **GRUB** – Loads kernel and initramfs.
+3. **Kernel** – Initializes CPU, memory, and drivers.
+4. **Initramfs** – Loads required drivers and finds root filesystem.
+5. **Systemd** – Starts services and completes system startup.
+
+
+
 
 ## Summary
 
