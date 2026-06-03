@@ -88,7 +88,33 @@ top             # Monitor CPU and memory usage
 systemctl       # Manage services
 journalctl      # View logs
 ls -la          # List files and permissions
+ss -tulpn # Check listening ports
 ```
+
+## Linux Boot Process
+Power On
+   ↓
+BIOS/UEFI
+   ↓
+GRUB Bootloader
+   ↓
+Linux Kernel
+   ↓
+Initramfs
+   ↓
+Mount Root Filesystem
+   ↓
+systemd (PID 1)
+   ↓
+Start Services
+   ↓
+Login Prompt / GUI
+Boot Stages
+BIOS/UEFI – Detects hardware and finds boot device.
+GRUB – Loads kernel and initramfs.
+Kernel – Initializes CPU, memory, and drivers.
+Initramfs – Loads required drivers and finds root filesystem.
+Systemd – Starts services and completes system startup.
 
 ## Summary
 
