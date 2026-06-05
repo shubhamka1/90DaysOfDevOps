@@ -216,6 +216,7 @@ sudo systemctl enable nginx
 ```bash id="jtydfo"
 journalctl -u nginx
 journalctl -u nginx -n 50
+journalctl -u nginx --since "1 hour ago"
 tail -f /var/log/nginx/access.log
 ```
 
