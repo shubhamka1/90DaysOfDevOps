@@ -1,0 +1,2 @@
+103.248.73.237 - - [05/Jun/2026:06:00:28 +0000] "GET / HTTP/1.1" 200 409 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+103.248.73.237 - - [05/Jun/2026:06:00:28 +0000] "GET /favicon.ico HTTP/1.1" 404 197 "http://44.243.85.170/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
