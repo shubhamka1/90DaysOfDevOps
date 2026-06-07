@@ -1,0 +1,423 @@
+# Linux Storage Management Notes (EBS Volume)
+
+## Objective
+
+Learn how to prepare, format, mount, and verify a new storage volume in Linux.
+
+---
+
+## Storage Concepts Learned
+
+### Block Devices
+
+Linux represents disks as block devices under:
+
+```bash
+/dev/
+```
+
+Examples:
+
+```text
+/dev/nvme0n1
+/dev/nvme1n1
+/dev/nvme2n1
+/dev/nvme3n1
+```
+
+---
+
+### Filesystem
+
+A new disk cannot be used until a filesystem is created.
+
+Common filesystems:
+
+| Filesystem | Usage                         |
+| ---------- | ----------------------------- |
+| ext4       | Most common Linux filesystem  |
+| xfs        | Enterprise Linux environments |
+| vfat       | Cross-platform compatibility  |
+
+---
+
+## Commands Learned
+
+### lsblk
+
+Displays all block storage devices attached to the system.
+
+```bash
+lsblk
+```
+
+Useful flags:
+
+| Flag | Purpose                       |
+| ---- | ----------------------------- |
+| `-f` | Show filesystem type and UUID |
+| `-o` | Customize displayed columns   |
+
+Examples:
+
+```bash
+lsblk -f
+
+lsblk -o NAME,SIZE,FSTYPE,MOUNTPOINT
+```
+
+---
+
+### mkfs
+
+Creates a filesystem on a disk.
+
+Syntax:
+
+```bash
+sudo mkfs -t <filesystem> <device>
+```
+
+Example:
+
+```bash
+sudo mkfs -t ext4 /dev/nvme3n1
+```
+
+Useful filesystem types:
+
+```bash
+sudo mkfs -t ext4 /dev/nvme3n1
+sudo mkfs -t xfs /dev/nvme3n1
+```
+
+---
+
+### mkdir
+
+Creates a mount point directory.
+
+```bash
+sudo mkdir /mnt/ebs-storage
+```
+
+Common locations:
+
+```text
+/mnt
+/media
+/data
+```
+
+---
+
+### mount
+
+Mounts a filesystem to a directory.
+
+Syntax:
+
+```bash
+sudo mount <device> <mountpoint>
+```
+
+Example:
+
+```bash
+sudo mount /dev/nvme3n1 /mnt/ebs-storage
+```
+
+---
+
+### umount
+
+Unmounts a filesystem.
+
+```bash
+sudo umount /mnt/ebs-storage
+```
+
+or
+
+```bash
+sudo umount /dev/nvme3n1
+```
+
+---
+
+### df
+
+Displays mounted filesystems and available disk space.
+
+```bash
+df -h
+```
+
+Useful flags:
+
+| Flag | Purpose              |
+| ---- | -------------------- |
+| `-h` | Human readable sizes |
+| `-T` | Show filesystem type |
+
+Examples:
+
+```bash
+df -h
+df -Th
+```
+
+---
+
+### blkid
+
+Displays filesystem UUID information.
+
+```bash
+sudo blkid
+```
+
+Example output:
+
+```text
+/dev/nvme3n1: UUID="xxxx" TYPE="ext4"
+```
+
+Useful when configuring persistent mounts.
+
+---
+
+### file -s
+
+Checks the filesystem present on a device.
+
+```bash
+sudo file -s /dev/nvme3n1
+```
+
+Example output:
+
+```text
+Linux rev 1.0 ext4 filesystem data
+```
+
+---
+
+### mount
+
+Displays currently mounted filesystems.
+
+```bash
+mount
+```
+
+Filter specific devices:
+
+```bash
+mount | grep nvme
+```
+
+---
+
+## Typical Linux Storage Workflow
+
+### 1. Verify Disk Attached
+
+```bash
+lsblk
+```
+
+### 2. Create Filesystem
+
+```bash
+sudo mkfs -t ext4 /dev/nvme3n1
+```
+
+### 3. Create Mount Point
+
+```bash
+sudo mkdir /mnt/ebs-storage
+```
+
+### 4. Mount Disk
+
+```bash
+sudo mount /dev/nvme3n1 /mnt/ebs-storage
+```
+
+### 5. Verify Mount
+
+```bash
+df -h
+
+lsblk
+
+mount | grep nvme3n1
+```
+
+### 6. Test Storage
+
+```bash
+cd /mnt/ebs-storage
+
+sudo touch test.txt
+
+ls -l
+```
+
+---
+
+## Additional Commands Learned
+
+### man
+
+View command documentation.
+
+```bash
+man mkfs
+man mount
+man lsblk
+```
+
+---
+
+### grep
+
+Filter output.
+
+```bash
+mount | grep nvme
+
+df -h | grep nvme
+```
+
+---
+
+### touch
+
+Create test files.
+
+```bash
+touch test.txt
+```
+
+---
+
+### ls
+
+Verify file creation.
+
+```bash
+ls -l
+
+ls -lh
+```
+
+---
+
+## Important Interview Concepts
+
+### Difference Between lsblk and df -h
+
+| Command | Purpose                          |
+| ------- | -------------------------------- |
+| lsblk   | Shows all attached block devices |
+| df -h   | Shows mounted filesystems only   |
+
+---
+
+### What Does mkfs Do?
+
+Creates a filesystem on a raw storage device.
+
+Example:
+
+```bash
+sudo mkfs -t ext4 /dev/nvme3n1
+```
+
+---
+
+### What Is a Mount Point?
+
+A directory where a filesystem becomes accessible.
+
+Example:
+
+```text
+/mnt/ebs-storage
+```
+
+---
+
+### What Does mount Do?
+
+Attaches a filesystem to a directory so users can access it.
+
+Example:
+
+```bash
+sudo mount /dev/nvme3n1 /mnt/ebs-storage
+```
+
+---
+
+### What Is a UUID?
+
+A unique identifier assigned to a filesystem.
+
+View UUID:
+
+```bash
+sudo blkid
+```
+
+Used for persistent mounts in:
+
+```text
+/etc/fstab
+```
+
+---
+
+## Most Useful Storage Commands
+
+```bash
+lsblk
+
+lsblk -f
+
+sudo mkfs -t ext4 /dev/nvme3n1
+
+sudo mkdir /mnt/ebs-storage
+
+sudo mount /dev/nvme3n1 /mnt/ebs-storage
+
+sudo umount /mnt/ebs-storage
+
+df -h
+
+df -Th
+
+sudo blkid
+
+sudo file -s /dev/nvme3n1
+
+mount
+
+mount | grep nvme
+
+touch test.txt
+```
+
+## Key Takeaway
+
+Before a new EBS volume can be used:
+
+1. Attach the volume.
+2. Verify with `lsblk`.
+3. Create a filesystem using `mkfs`.
+4. Create a mount point using `mkdir`.
+5. Mount the volume using `mount`.
+6. Verify using `df -h` and `lsblk`.
+7. Test by creating files on the mounted storage.
